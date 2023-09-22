@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Document</title>
+    
+    <link rel = "stylesheet" href="css/mystyle.css">
+    <link rel = "stylesheet" href="css/index.css">
+
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <button  onclick = "naviagteToHomePage()" class = "star-btn">Go Back</button>
+    <div class = "app">
+        <h1>Obi-Wan-Quiz</h1>
+        <div class = "quiz">
+            <h2 id = "question"> Question goes here </h2>
+            <div id = "answer-buttons">
+                <button class = "btn">Answer 1</button>
+                <button class = "btn">Answer 2</button>
+                <button class = "btn">Answer 3</button>
+                <button class = "btn">Answer 4</button>
+            </div>
+            <button id = "next-btn"> Next</button>
+
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src ="script.js"> </script>
+
+    <script>
+        function naviagteToHomePage(){
+        window.location.href = "homepage.html" 
+    }
+    </script>
+
+
+    <script src = "scripts/quizgame.js"></script> <!-- links JS with HTML  -->
+</body>
+</html>
