@@ -91,13 +91,22 @@ const jediQuestions = [
 },
 
 ];
+// Reference to the main question element
 const holocronElement = document.getElementById("question");
+
+// Reference to the container holding all the answer buttons
 const forceButtons = document.getElementById("answer-buttons");
+
+// Reference to the 'next' button
 const hyperspaceButton = document.getElementById("next-btn");
 
+// Variables to keep track of the current question index and the user's score
 let currentHolocronIndex = 0;
 let jediScore = 0;
 
+/**
+ * Initiate the Jedi training by setting initial values and loading the first question.
+ */
 async function initiateJediTraining() {
     currentHolocronIndex = 0;
     jediScore = 0;
@@ -105,12 +114,16 @@ async function initiateJediTraining() {
     await projectHolocron();
 }
 
+/**
+ * Display the current question and its associated answer options to the user.
+ */
 async function projectHolocron() {
     clearForce();
     const currentHolocron = jediQuestions[currentHolocronIndex];
     const holocronOrder = currentHolocronIndex + 1;
     holocronElement.innerHTML = `${holocronOrder}. ${currentHolocron.question}`;
 
+    // Create and display buttons for each answer option
     for (const forceOption of currentHolocron.answers) {
         const button = document.createElement("button");
         button.innerHTML = forceOption.text;
@@ -123,6 +136,9 @@ async function projectHolocron() {
     }
 }
 
+/**
+ * Clear previous question and answer buttons and hide the 'next' button.
+ */
 function clearForce() {
     hyperspaceButton.style.display = "none";
     while (forceButtons.firstChild) {
@@ -131,16 +147,21 @@ function clearForce() {
 }
 
 function channelForce(e) {
+    // Get the clicked button
     const chosenPath = e.target;
+    
+    // Determine if the chosen answer is correct
     const followsTheLight = chosenPath.dataset.correct === "true";
+
+    // Add a CSS class to visually indicate whether the answer was correct or incorrect
     if (followsTheLight) {
         chosenPath.classList.add("correct");
         jediScore++;
-    } 
-    else {
+    } else {
         chosenPath.classList.add("incorrect");
     }
 
+    // Disable all answer buttons after one is clicked
     Array.from(forceButtons.children).forEach(button => {
         if (button.dataset.correct === "true") {
             button.classList.add("correct");
@@ -148,37 +169,48 @@ function channelForce(e) {
         button.disabled = true;
     });
 
+    // Show the "Next" button
     hyperspaceButton.style.display = "block";
 }
 
+/**
+ * Function to display the user's score and a special message if they got all answers correct.
+ */
 function consultYoda() {
     clearForce();
     let forceMessage = `You channeled the Force ${jediScore} out of ${jediQuestions.length} times correctly.`;
+    
     if (jediScore === jediQuestions.length) {
         forceMessage += " Truly powerful in the Force, you have become!";
     }
     holocronElement.innerHTML = forceMessage;
+
+    // Update and display the button to start the quiz again
     hyperspaceButton.innerHTML = "Start Jedi Training";
     hyperspaceButton.style.display = "block";
 }
 
+/**
+ * Function to move to the next question or display the results if all questions have been answered.
+ */
 function navigateHyperspace() {
     currentHolocronIndex++;
+
     if (currentHolocronIndex < jediQuestions.length) {
         projectHolocron();
-    } 
-    else {
+    } else {
         consultYoda();
     }
 }
 
+// Event listener to handle "Next" button clicks
 hyperspaceButton.addEventListener("click", () => {
     if (currentHolocronIndex < jediQuestions.length) {
         navigateHyperspace();
-    } 
-    else {
+    } else {
         initiateJediTraining();
     }
 });
 
+// Start the quiz
 initiateJediTraining();

@@ -1,3 +1,4 @@
+/* Main application container styles */
 .app{
     background:  #fff;
     width:90%;
@@ -7,6 +8,7 @@
     padding:30px;
 }
  
+/* Header styles within the app */
 .app h1{
     font-size:25px;
     color:#001e4d;
@@ -15,16 +17,19 @@
     padding-bottom: 30px;
 }
 
+/* Quiz section styling */
 .quiz{
     padding: 20px 0;
 }
 
+/* Subheading styles for quiz questions */
 .quiz h2{
     font-size:18px;
     color: #001e4d;
-    font-weight: 600
+    font-weight: 600;
 }
 
+/* Go back button styling */
 .Go-Back-Btn{
     border-radius: 10px;
     font-size: 20px;
@@ -35,12 +40,14 @@
     cursor:pointer;
 }
 
+/* Hover state for Go back button */
 .Go-Back-Btn:hover{
     color:black;
     background-color: beige;
     transition: 1s;
 }
 
+/* Generic button styling */
 .btn{
     background: #fff;
     color: #222;
@@ -55,24 +62,26 @@
     transition: all 0.3s;
 }
 
+/* Hover state for buttons that are not disabled */
 .btn:hover:not([disabled]){
     background:blue;
     color: #fff;
 }
 
-.btn:dsiabled{
-    cursor: no-drop
+/* Styling for disabled buttons - typo corrected from "dsiabled" */
+.btn:disabled{
+    cursor: no-drop;
 }
 
+/* Body styling with background image */
 body{
-    
     background-image: url("/QuizGame/images/obi-wan.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     min-height: 100vh;
-    
 }
 
+/* Styling for the next button */
 #next-btn{
     background: #001e4d;
     color: #fff;
@@ -86,38 +95,47 @@ body{
     display:none;
 }
 
+/* Styling for correct answers */
 .correct{
     background: #9aeabc;
 }
+
+/* Styling for incorrect answers */
 .incorrect{
     background: #ff9393;
 }
 
-
+/* Responsive styles for screens with max width of 600px */
 @media (max-width: 600px) {
+    /* Adjustments to the app container */
     .app {
         padding: 20px;
         margin: 50px auto 0;
     }
 
+    /* Adjustments to app header */
     .app h1 {
         font-size: 20px;
         padding-bottom: 20px;
     }
 
+    /* Adjustments to quiz subheading */
     .quiz h2 {
         font-size: 16px;
     }
 
+    /* Adjustments to Go Back button */
     .Go-Back-Btn {
         font-size: 18px;
     }
 
+    /* Adjustments to generic button */
     .btn {
         padding: 8px;
         margin: 8px 0;
     }
 
+    /* Adjustments to next button */
     #next-btn {
         width: 130px;
         padding: 8px;

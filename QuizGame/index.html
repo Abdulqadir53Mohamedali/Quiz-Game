@@ -13,21 +13,36 @@
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
 </head>
 <body>
-    <button  onclick = "naviagteToHomePage()" class = "Go-Back-Btn">Go Back</button>
-    <div class = "app">
+    <!-- Go Back button to navigate to the home page -->
+    <button onclick="naviagteToHomePage()" class="Go-Back-Btn">Go Back</button>
+
+    <!-- Main application container -->
+    <div class="app">
+
+        <!-- Quiz title -->
         <h1>Obi-Wan-Quiz</h1>
-        <div class = "quiz">
-            <h2 id = "question"> Question goes here </h2>
-            <div id = "answer-buttons">
-                <button class = "btn">Answer 1</button>
-                <button class = "btn">Answer 2</button>
-                <button class = "btn">Answer 3</button>
-                <button class = "btn">Answer 4</button>
+        
+        <!-- Quiz content container -->
+        <div class="quiz">
+
+            <!-- Placeholder for the question text -->
+            <h2 id="question">Question goes here</h2>
+
+            <!-- Container for answer buttons -->
+            <div id="answer-buttons">
+                <!-- Individual answer buttons -->
+                <button class="btn">Answer 1</button>
+                <button class="btn">Answer 2</button>
+                <button class="btn">Answer 3</button>
+                <button class="btn">Answer 4</button>
             </div>
-            <button id = "next-btn"> Next</button>
+
+            <!-- Next button for navigation -->
+            <button id="next-btn">Next</button>
 
         </div>
     </div>
+
 
     <!-- JavaScript -->
     <script src ="script.js"> </script>

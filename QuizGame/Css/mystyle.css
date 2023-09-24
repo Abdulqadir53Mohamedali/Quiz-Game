@@ -1,62 +1,62 @@
+/* Resetting some default styles for all elements for consistency across browsers */
 * {
     margin: 0;
     padding: 0;
     font-family: 'Roboto Condensed', sans-serif;
 }
 
-
-
-
-body{
-    min-height: 100vh;
-    width:100%;
-    font-family : Arial, Helvetica, sans-serif;
-    background-image: url("/QuizGame/images/obi-wan-kenobi-homepage.jpg") ;
-    background-position: center; 
-    background-size: cover;
-     position: relative;
+/* Styling for the body element */
+body {
+    min-height: 100vh; /* Ensure the body takes up the full viewport height */
+    width: 100%; /* Ensure the body takes up the full viewport width */
+    font-family: Arial, Helvetica, sans-serif; /* Specify the font family for body content */
+    background-image: url("/QuizGame/images/obi-wan-kenobi-homepage.jpg"); /* Set the background image */
+    background-position: center; /* Center the background image */
+    background-size: cover; /* Ensure the background image covers the entire viewport */
+    position: relative; /* Set relative positioning to be a reference point for its children */
 }
 
-.homepage-desc{
-    /* color: #fff; Set text color to white */
-    width: 90%; 
-    position: absolute; /* Absolutely position the text box relative to its parent */
-    top: 47%; /* Center it vertically */
-    left: 50%; /* Center it horizontally */
-    transform: translate(-50%, -50%); /* Adjust for the element's own size */
-    text-align: center; 
+/* Styling for the homepage description container */
+.homepage-desc {
+    width: 90%; /* Set width to 90% of its parent */
+    position: absolute; /* Absolute position relative to its parent (body) */
+    top: 47%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust for the element's own size for perfect centering */
+    text-align: center; /* Center the inner text elements */
 }
 
-.homepage-desc h1{
-    color:beige;
-    font-size:59px;
+/* Styling for the h1 heading inside the homepage description */
+.homepage-desc h1 {
+    color: beige; /* Set the text color */
+    font-size: 59px; /* Set the font size */
 }
 
+/* Styling for the paragraph inside the homepage description */
 .homepage-desc p {
-    color: beige;
-    margin:10px 0 40px;
-    padding:12px 34px;
-    font-size: 14px;
-    /* color:#fff */
-
+    color: beige; 
+    margin: 10px 0 40px; /* Add margin to space it from other elements */
+    padding: 12px 34px; /* Add padding for visual spacing inside the element */
+    font-size: 14px; 
 }
 
-.start-btn{
-    text-decoration:none;
-    color:black;
-    display:inline-block;
-    border: 1px solid black;
-    padding:12px 34px;
-    font-size: 13px;
-    position: relative;
-    background:transparent;
-    cursor:pointer;
+/* Styling for the start button on the homepage */
+.start-btn {
+    text-decoration: none; /* Remove any underlines from the button text */
+    color: black; 
+    display: inline-block; /* Display as an inline block for inline positioning with block properties */
+    border: 1px solid black; /* Add a border around the button */
+    padding: 12px 34px; /* Add padding for visual spacing inside the button */
+    font-size: 13px; /* Set the font size */
+    position: relative; 
+    background: transparent; /* Set a transparent background */
+    cursor: pointer; /* Change the cursor to indicate the button is clickable */
 }
 
-.start-btn:hover{
-    color: grey;
-    border: 1px solid beige;
-    background: beige;
-    transition: 1s;
-    
+/* Styling for the start button on hover */
+.start-btn:hover {
+    color: grey; /* Change the text color when hovered */
+    border: 1px solid beige; /* Change the border color when hovered */
+    background: beige; /* Change the background color when hovered */
+    transition: 1s; /* Smooth the hover effect over 1 second */
 }
