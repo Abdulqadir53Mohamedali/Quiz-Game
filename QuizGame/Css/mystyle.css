@@ -11,20 +11,11 @@ body{
     min-height: 100vh;
     width:100%;
     font-family : Arial, Helvetica, sans-serif;
-    background-image: url(images/obi-wan-kenobi-homepage.jpg) ;
+    background-image: url("/images/obi-wan-kenobi-homepage.jpg") ;
     background-position: center; 
     background-size: cover;
      position: relative;
 }
-/* .header {
-    min-height: 100vh; 
-    width: 100%; 
-    
-    background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(images/Overwatch_backgorund_homeP.jpg); 
-    background-position: center;
-    background-size: cover; 
-    position: relative;
-} */
 
 .start_button{
     color: #fff; /* Set text color to white */
