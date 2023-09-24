@@ -1,4 +1,4 @@
-const questions = [
+const jediQuestions = [
     {
     question: "Who was Obi-Wan's master?",
     answers:[
@@ -91,92 +91,94 @@ const questions = [
 },
 
 ];
-const questionElement = document.getElementById("question");
-const answerButton = document.getElementById("answer-buttons");
-const nextButton = document.getElementById("next-btn");
+const holocronElement = document.getElementById("question");
+const forceButtons = document.getElementById("answer-buttons");
+const hyperspaceButton = document.getElementById("next-btn");
 
-let currentQuestionIndex = 0;
-let score = 0;
+let currentHolocronIndex = 0;
+let jediScore = 0;
 
-function startQuiz(){
-    currentQuestionIndex = 0;
-    score = 0 ;
-    nextButton.innerHTML = "Next";
-    showQuestion();
+async function initiateJediTraining() {
+    currentHolocronIndex = 0;
+    jediScore = 0;
+    hyperspaceButton.innerHTML = "Next";
+    await projectHolocron();
 }
 
-function showQuestion(){
-    resetState();
-    let currentQuestion = questions[currentQuestionIndex];
-    let questionNo = currentQuestionIndex + 1;
-    questionElement.innerHTML = questionNo + ". " + currentQuestion.question;
+async function projectHolocron() {
+    clearForce();
+    const currentHolocron = jediQuestions[currentHolocronIndex];
+    const holocronOrder = currentHolocronIndex + 1;
+    holocronElement.innerHTML = `${holocronOrder}. ${currentHolocron.question}`;
 
-    currentQuestion.answers.forEach(answer =>{
+    for (const forceOption of currentHolocron.answers) {
         const button = document.createElement("button");
-        button.innerHTML = answer.text;
+        button.innerHTML = forceOption.text;
         button.classList.add("btn");
-        answerButton.appendChild(button);
-        if(answer.correct){
-            button.dataset.correct = answer.correct;
+        if (forceOption.correct) {
+            button.dataset.correct = forceOption.correct;
         }
-        button.addEventListener("click",selectAnswer);
-    });
-
-}
-
-function resetState(){
-    nextButton.style.display = "none";
-    while(answerButton.firstChild){
-        answerButton.removeChild(answerButton.firstChild);
+        button.addEventListener("click", channelForce);
+        forceButtons.appendChild(button);
     }
 }
 
-function selectAnswer(e){
-    const selectBtn = e.target;
-    const isCorrect = selectBtn.dataset.correct === "true";
-    if(isCorrect){
-        selectBtn.classList.add("correct");
-        score++;
+function clearForce() {
+    hyperspaceButton.style.display = "none";
+    while (forceButtons.firstChild) {
+        forceButtons.removeChild(forceButtons.firstChild);
     }
-    else{
-        selectBtn.classList.add("incorrect");
+}
+
+function channelForce(e) {
+    const chosenPath = e.target;
+    const followsTheLight = chosenPath.dataset.correct === "true";
+    if (followsTheLight) {
+        chosenPath.classList.add("correct");
+        jediScore++;
+    } 
+    else {
+        chosenPath.classList.add("incorrect");
     }
-    Array.from(answerButton.children).forEach(button =>{
-        if(button.dataset.correct === "true"){
+
+    Array.from(forceButtons.children).forEach(button => {
+        if (button.dataset.correct === "true") {
             button.classList.add("correct");
         }
         button.disabled = true;
-    })
-    nextButton.style.display = "block";
+    });
 
+    hyperspaceButton.style.display = "block";
 }
 
-
-function showScore()
-{
-    resetState();
-    questionElement.innerHTML = `You scored ${score} out of ${questions.length}!`;
-    nextButton.innerHTML = "Play Again";
-    nextButton.style.display = "block";
-
+function consultYoda() {
+    clearForce();
+    let forceMessage = `You channeled the Force ${jediScore} out of ${jediQuestions.length} times correctly.`;
+    if (jediScore === jediQuestions.length) {
+        forceMessage += " Truly powerful in the Force, you have become!";
+    }
+    holocronElement.innerHTML = forceMessage;
+    hyperspaceButton.innerHTML = "Start Jedi Training";
+    hyperspaceButton.style.display = "block";
 }
 
-function handleNextButton(){
-    currentQuestionIndex++;
-    if(currentQuestionIndex < questions.length){
-        showQuestion()
-    }
-    else{
-        showScore();
+function navigateHyperspace() {
+    currentHolocronIndex++;
+    if (currentHolocronIndex < jediQuestions.length) {
+        projectHolocron();
+    } 
+    else {
+        consultYoda();
     }
 }
 
-nextButton.addEventListener("click", ()=>{
-    if(currentQuestionIndex < questions.length){
-        handleNextButton();
+hyperspaceButton.addEventListener("click", () => {
+    if (currentHolocronIndex < jediQuestions.length) {
+        navigateHyperspace();
+    } 
+    else {
+        initiateJediTraining();
     }
-    else{
-        startQuiz();
-    }
-})
-startQuiz()
+});
+
+initiateJediTraining();
