@@ -50,7 +50,7 @@
 
 body{
     background-color: darkblue;
-    background-image: url('/images/obi-wan.jpg');
+    background-image: url("/QuizGame/images/obi-wan.jpg");
     background-size: cover;
 }
 
