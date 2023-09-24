@@ -1,21 +1,68 @@
-
-body{
-    width:100%;
-    font-family : Arial, Helvetica, sans-serif;
-    background-color: #5A5A5A;
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto Condensed', sans-serif;
 }
 
-.start_button button{
-    position : absolute;
-    top : 43%;
-    left : 45%;
-    width: 5%;
-    height:5%;
+
+
+
+body{
+    min-height: 100vh;
+    width:100%;
+    font-family : Arial, Helvetica, sans-serif;
+    background-image: url(images/obi-wan-kenobi-homepage.jpg) ;
+    background-position: center; 
+    background-size: cover;
+     position: relative;
+}
+/* .header {
+    min-height: 100vh; 
+    width: 100%; 
+    
+    background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(images/Overwatch_backgorund_homeP.jpg); 
+    background-position: center;
+    background-size: cover; 
+    position: relative;
+} */
+
+.start_button{
+    color: #fff; /* Set text color to white */
+    width: 90%; 
+    position: absolute; /* Absolutely position the text box relative to its parent */
+    top: 50%; /* Center it vertically */
+    left: 50%; /* Center it horizontally */
+    transform: translate(-50%, -50%); /* Adjust for the element's own size */
+    text-align: center; 
 }
 
 .start_button h1{
-    position : absolute;
-    top :30%;
-    left:43%
-  
+    font-size:59px;
+}
+
+.start_button p {
+    margin:10px 0 40px;
+    padding:12px 34px;
+    font-size: 14px;
+    color:#fff
+
+}
+
+.start-btn{
+    text-decoration:none;
+    color:#fff;
+    display:inline-block;
+    border: 1px solid #fff;
+    padding:12px 34px;
+    font-size: 13px;
+    position: relative;
+    background:transparent;
+    cursor:pointer;
+}
+
+.start-btn:hover{
+    border: 1px solid darkblue;
+    background: darkblue;
+    transition: 1s;
+    
 }
