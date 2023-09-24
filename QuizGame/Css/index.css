@@ -25,6 +25,22 @@
     font-weight: 600
 }
 
+.Go-Back-Btn{
+    border-radius: 10px;
+    font-size: 20px;
+    text-decoration: none;
+    color:grey;
+    border: 1px solid beige;
+    background:white; 
+    cursor:pointer;
+}
+
+.Go-Back-Btn:hover{
+    color:black;
+    background-color: beige;
+    transition: 1s;
+}
+
 .btn{
     background: #fff;
     color: #222;
