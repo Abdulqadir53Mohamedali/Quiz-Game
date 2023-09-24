@@ -65,9 +65,12 @@
 }
 
 body{
-    background-color: darkblue;
+    
     background-image: url("/QuizGame/images/obi-wan.jpg");
     background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    
 }
 
 #next-btn{
@@ -88,4 +91,36 @@ body{
 }
 .incorrect{
     background: #ff9393;
+}
+
+
+@media (max-width: 600px) {
+    .app {
+        padding: 20px;
+        margin: 50px auto 0;
+    }
+
+    .app h1 {
+        font-size: 20px;
+        padding-bottom: 20px;
+    }
+
+    .quiz h2 {
+        font-size: 16px;
+    }
+
+    .Go-Back-Btn {
+        font-size: 18px;
+    }
+
+    .btn {
+        padding: 8px;
+        margin: 8px 0;
+    }
+
+    #next-btn {
+        width: 130px;
+        padding: 8px;
+        margin: 15px auto 0;
+    }
 }
